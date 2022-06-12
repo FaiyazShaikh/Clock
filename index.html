@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Analog and Digital Clock Using HTML,CSS and JavaScript</title>
     <link rel="stylesheet" href="clk.css">
-    <!-- <style>
-        @import url('https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap');
+    <style>
+       @import url('https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap');
 *{
     margin: 0;
     padding: 0;
@@ -28,6 +28,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    background: #d0d0d0;
     flex-direction: column;
 }
 
@@ -125,6 +126,10 @@ body{
     flex-direction: column;
     margin-bottom: 40px;
 }
+#digital span{
+    margin-bottom: 10px;
+    color: rgb(230, 230, 229);
+}
 #time{
     display: flex;
     justify-content: center;
@@ -169,7 +174,36 @@ body{
     color: var(--clr);
 
 }
-    </style> -->
+
+@media screen and (max-width:550px) {
+    .clock{
+        width:300px;
+        height: 300px;
+    }
+    .circle{
+        position: absolute;
+        width: 170px;
+        height: 170px;
+    }
+    .circle2{
+        position: absolute;
+        width: 130px;
+        height: 130px;
+    }
+    .circle3{
+        position: absolute;
+        width: 100px;
+        height: 100px;
+    }
+    .circle::before{
+        width: 6px;
+        height: 6px;
+    }
+    .clock span b{
+        font-size: 1.5em;
+    }
+}
+    </style>
 </head>
 <body>
     <div class="container">
