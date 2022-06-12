@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analog and Digital Clock Using HTML,CSS and JavaScript</title>
+    <link rel="stylesheet" href="clk.css">
+    <!-- <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Kdam Thmor Pro', sans-serif;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height:100vh;
+    background: rgba(214, 214, 214, 0.267);
+}
+.container{
+    position: relative;
+    border-radius: 20px;
+    box-shadow: 10px 50px 70px rgba(78, 78, 78, 0.25),inset 5px 10px 10px rgba(77, 77, 77, 0.5), inset 5px 5px 20px rgba(104, 104, 104, 0.2),inset -5px -5px 15px rgba(103, 103, 103, 0.75) ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.clock{
+    position: relative;
+    width:450px;
+    height: 450px;
+    background: #b6b6b6;
+    border-radius: 20px;
+    box-shadow: 10px 50px 70px rgba(135, 135, 135, 0.25),inset 5px 10px 10px rgba(77, 77, 77, 0.5), inset 5px 5px 20px rgba(104, 104, 104, 0.2),inset -5px -5px 15px rgba(103, 103, 103, 0.75) ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+}
+.clock::before{
+    content: " ";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #d7d7d7;
+    border: 2px solid rgba(33, 33, 33, 1);
+    border-radius: 50%;
+    z-index: 300;
+}
+.clock span{
+    position:absolute;
+    inset:20px;
+    color: rgba(0,0,0,0.5);
+    text-align: center;
+    transform: rotate(calc(30deg * var(--i)));
+}
+.clock span b{
+    font-size: 2.2em;
+    opacity: 0.5;
+    font-weight: 500;
+    display: inline-block;
+    transform: rotate(calc(-30deg * var(--i)));
+}
+.circle{
+    position: absolute;
+    width: 290px;
+    height: 290px;
+    /* border: 2px solid rgba(103, 103, 103, 0.75); */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    z-index: 10;
+}
+.circle i{
+    position: absolute;
+    width: 6px;
+    height: 50%;
+    border-radius: 5px;
+    background: var(--clr);
+    opacity: 0.75;
+    transform-origin:bottom;
+    transform: scaleY(0.55);
+}
+.circle:nth-child(1) i{
+    width: 2px;
+}
+.circle:nth-child(2) i{
+    width: 6px;
+}
+
+.circle2{
+    width: 230px;
+    height: 230px;
+    z-index: 9;
+}
+.circle3{
+    width: 170px;
+    height: 170px;
+    z-index: 8;
+}
+.circle::before{
+    content: "";
+    position: absolute;
+    top: -8px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--clr);
+    box-shadow: 0 0 20px var(--clr),0 0 60px var(--clr);
+}
+
+/* digital clock and Date */
+
+#digital{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 40px;
+}
+#time{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    color: var(--clr);
+}
+#time div{
+    position: relative;
+    width: 40px;
+    text-align: center;
+    font-weight: 600;
+}
+
+#time div:nth-child(1)::after,
+#time div:nth-child(2)::after{
+    content: ":";
+    position: absolute;
+    right: -3px;
+    top: -2px;
+}
+
+#date{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    color: var(--clr);
+    
+}
+#date div{
+    /* width: 40px; */
+    text-align: center;
+    font-weight: 600;
+}
+#date div:nth-child(1)::after,
+#date div:nth-child(2)::after{
+    content: "/";
+}
+#day{
+    font-weight: 600;
+    color: var(--clr);
+
+}
+    </style> -->
+</head>
+<body>
+    <div class="container">
+        <div class="clock">
+
+            <div class="circle circle1" id="sc" style="--clr:#ff5100"><i></i></div>
+            <div class="circle circle2" id="mn" style="--clr:#ffffff"><i></i></div>
+            <div class="circle circle3" id="hr" style="--clr:#00902b"><i></i></div>
+
+            <span style="--i:1;"><b>1</b></span>
+            <span style="--i:2;"><b>2</b></span>
+            <span style="--i:3;"><b>3</b></span>
+            <span style="--i:4;"><b>4</b></span>
+            <span style="--i:5;"><b>5</b></span>
+            <span style="--i:6;"><b>6</b></span>
+            <span style="--i:7;"><b>7</b></span>
+            <span style="--i:8;"><b>8</b></span>
+            <span style="--i:9;"><b>9</b></span>
+            <span style="--i:10;"><b>10</b></span>
+            <span style="--i:11;"><b>11</b></span>
+            <span style="--i:12;"><b>12</b></span>
+        </div>
+        <div id="digital">
+            <span>Faiyaz Shaikh</span>
+            <div id="time" style="--clr:#ff5100" >
+                <div id="hour">00</div>
+                <div id="min">00</div>
+                <div id="sec">00</div>
+                <div id="ampm">AM</div>
+            </div>
+            <div id="date" style="--clr:#ffffff">
+                <div id="d">DD</div>
+                <div id="m">MM</div>
+                <div id="y">YY</div>
+            </div>
+            <div id="day" style="--clr:#00902b">Monday</div>
+        </div>
+    </div>
+
+    <!-- Digital Clock and Date -->
+
+    <script>
+         let hr = document.querySelector('#hr');
+         let mn = document.querySelector('#mn');
+         let sc = document.querySelector('#sc');
+
+         setInterval(()=>{
+
+             let day = new Date();
+             let hh = day.getHours() * 30;
+             let mm = day.getMinutes() * 6;
+             let ss = day.getSeconds() * 6;
+             
+             hr.style.transform = `rotateZ(${hh}deg)`;
+             mn.style.transform = `rotateZ(${mm}deg)`;
+             sc.style.transform = `rotateZ(${ss}deg)`;
+
+             let hour = document.getElementById('hour');
+             let min = document.getElementById('min');
+             let sec = document.getElementById('sec');
+             let ampm = document.getElementById('ampm');
+
+             let h = new Date().getHours();
+             let m = new Date().getMinutes();
+             let s = new Date().getSeconds();
+
+             let ap = (h>=12) ? "PM" : "AM"
+             h = (h>12) ?  h - 12 : h;
+             h = (h<10) ? "0" + h : h;
+             m = (m<10) ? "0" + m : m;
+             s = (s<10) ? "0" + s : s;
+             
+             hour.innerHTML = h;
+             min.innerHTML = m;
+             sec.innerHTML = s;
+             ampm.innerHTML = ap;
+
+             let days = document.getElementById('d');
+             let month = document.getElementById('m');
+             let year = document.getElementById('y');
+
+             let d = new Date().getDate();
+             let mon = new Date().getMonth();
+             let y = new Date().getFullYear();
+
+             days.innerHTML = d;
+             month.innerHTML = mon;
+             year.innerHTML = y;
+
+             let dayz = document.getElementById('day');
+             let da = new Date().getDay();
+
+             da = (da == 0) ? 'Sunday' : (da == 1) ? 'Monday': (da == 2) ? 'Tuesday': (da == 3) ? 'Wednesday':(da == 4) ? 'Thursday':(da == 5) ? 'Friday':(da == 6) ? 'Saturday':1;
+
+             dayz.innerHTML = da;
+
+            })
+    </script>
+</body>
+</html>
